@@ -5,6 +5,8 @@ class Timer {
         this.startButtonEl = startButtonEl;
         this.pauseButtonEl = pauseButtonEl;
 
+        this.intervalId = 0;
+
         this.initListenerEl();
     }
 
@@ -28,22 +30,37 @@ class Timer {
         this.startButtonEl.addEventListener('click', event => {
             this.startTimer(event);
         });
+
+        this.pauseButtonEl.addEventListener('click', event => {
+            this.pauseTimer(event);
+        });
     }
 
-    startTimer(event) {
-        // this berisi nilai parameter dan context dimana this ini berada
-        // bisa berisi nilai dari kelas ataupun dari object atau bisa global window
-        console.log(this, event);
-        console.log('Start timer dimulai');
+    // this berisi nilai parameter dan context dimana this ini berada
+    // bisa berisi nilai dari kelas ataupun dari object atau bisa global window
+    startTimer() {
+        this.onTick();
+
+        this.intervalId = setInterval(() => {
+            this.onTick();
+        }, 1000);
     }
 
     stopTimer() {
         console.log('Stop timer yang dimulai');
+        clearInterval(this.intervalId);
     }
 
     pauseTimer(event) {
         // hentikan timer sementara waktu
         console.log(event);
+        clearInterval(this.intervalId);
+    }
+
+    onDurationChange() {}
+
+    onTick() {
+        console.log('Waktu berdetik');
     }
 }
 
