@@ -2,6 +2,10 @@
 class Timer {
     constructor(numberDurationInput, startButtonEl, pauseButtonEl) {
         this.numberDurationInput = numberDurationInput;
+
+        // karena ada keyword getter get, tidak perlu pake kurung buka tutup
+        this.numberSisaWaktu = this.getTimeRemaining();
+
         this.startButtonEl = startButtonEl;
         this.pauseButtonEl = pauseButtonEl;
 
@@ -51,9 +55,8 @@ class Timer {
         clearInterval(this.intervalId);
     }
 
-    pauseTimer(event) {
+    pauseTimer() {
         // hentikan timer sementara waktu
-        console.log(event);
         clearInterval(this.intervalId);
     }
 
@@ -61,6 +64,40 @@ class Timer {
 
     onTick() {
         console.log('Waktu berdetik');
+        if (this.numberSisaWaktu > 0) {
+            // this.numberSisaWaktu -= 1;
+            // this.setTimeInput(this.numberSisaWaktu);
+
+            // dengan getter setter
+            this.timeRemaining -= 1;
+            this.numberSisaWaktu = this.timeRemaining;
+            // this.numberDurationInput.value = this.numberSisaWaktu - 1;
+        } else {
+            // this.numberSisaWaktu = 0;
+            // this.setTimeInput(this.numberSisaWaktu);
+
+            // Dengan getter setter
+            this.timeRemaining = 0;
+            this.stopTimer();
+        }
+    }
+
+    getTimeRemaining() {
+        return parseFloat(this.numberDurationInput.value);
+    }
+
+    setTimeInput(numberTime) {
+        this.numberDurationInput.value = numberTime;
+    }
+
+    // Dengan getter dan setter
+    // Menyimpan nilai di dalam DOM
+    get timeRemaining() {
+        return parseFloat(this.numberDurationInput.value);
+    }
+
+    set timeRemaining(time) {
+        this.numberDurationInput.value = time;
     }
 }
 
