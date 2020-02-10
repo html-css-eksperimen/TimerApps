@@ -1,3 +1,4 @@
+// Kelas menghitung waktu
 export default class TimerWaktu {
     constructor(numberDurationInput, startButtonEl, pauseButtonEl, callbacks) {
         this.numberDurationInput = numberDurationInput;
@@ -30,13 +31,13 @@ export default class TimerWaktu {
     // bisa berisi nilai dari kelas ataupun dari object atau bisa global window
     startTimer() {
         if (this.onStartCallback) {
-            this.onStartCallback();
+            this.onStartCallback(this.timeRemaining);
         }
 
         this.tickWaktu();
         this.intervalId = setInterval(() => {
             this.tickWaktu();
-        }, 50);
+        }, 20);
     }
 
     pauseTimer() {
@@ -54,9 +55,9 @@ export default class TimerWaktu {
                 this.onCompleteCallback();
             }
         } else {
-            this.timeRemaining -= 0.05;
+            this.timeRemaining -= 0.02;
             if (this.onTickCallback) {
-                this.onTickCallback();
+                this.onTickCallback(this.timeRemaining);
             }
         }
     }

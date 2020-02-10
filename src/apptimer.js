@@ -198,6 +198,12 @@ const latarCircleTimerEl = document.querySelector('#latarlingkarjam');
 const radiusString = circleTimerElement.getAttribute('r');
 const lingkarPerimeter = parseFloat(radiusString) * 2 * Math.PI;
 
+// Rumus menghitung offset untuk stroke dash offset
+// offset = (perimeter * timeRemaining / totalDuration) - perimeter
+// Contoh perimeter = 365 , total duration = 30
+// offset start = (365 * 30 / 30) - 365 =  0
+// offset ending selesai waktu = (365 * 0 / 30) - 365 = 0
+
 // Set attribute ke element lingkaran
 circleTimerElement.setAttribute('stroke-dasharray', lingkarPerimeter);
 latarCircleTimerEl.setAttribute('stroke-dasharray', lingkarPerimeter);
@@ -206,15 +212,22 @@ latarCircleTimerEl.setAttribute('stroke-dasharray', lingkarPerimeter);
 
 // Menggunakan Callback
 let currentOffsetDash = 0;
+let totalDurationTimer = 0;
 
 const timerWaktu = new TimerWaktu(durasiInputEl, startButtonEl, pauseButtonEl, {
-    onStart() {
+    onStart(totalDuration) {
         console.log('Timer dimulai callback');
+        totalDurationTimer = totalDuration;
     },
-    onTick() {
+    onTick(timeRemaining) {
         console.log('Timer sedang berdetik');
+
+        currentOffsetDash =
+            (lingkarPerimeter * timeRemaining) / totalDurationTimer -
+            lingkarPerimeter;
+
         circleTimerElement.setAttribute('stroke-dashoffset', currentOffsetDash);
-        currentOffsetDash -= 1;
+        // currentOffsetDash -= 1;
     },
     onComplete() {
         console.log('Timer sudah selesai');
