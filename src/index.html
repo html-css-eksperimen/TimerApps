@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Aplikasi Timer</title>
     <link rel="stylesheet" href="apptimer.css">
 </head>
+
 <body>
     <h1>Timer Apps</h1>
     <div>
@@ -14,7 +16,46 @@
         <button id="button_start">Start</button>
         <button id="button_pause">Pause</button>
     </div>
+
+    <!-- Cara membuat SVG -->
+    <div style="display: none;">
+        <svg width="200" height="200">
+            <circle r="20" cx="70" cy="40"></circle>
+            <circle r="20" cx="160" cy="40"></circle>
+            <circle r="20" cx="100" cy="140"></circle>
+        </svg>
+    </div>
+
+    <div style="display: '';">
+        <svg height="200" width="200">
+            <!-- dengan pakai svg dan dash array -->
+            <!-- batas garis perimeter = 2 x Pi x radius  -->
+            <!-- batas garis perimeter = 2 x Pi x 90 = P = ~595 -->
+            <!-- stroke dash offset untuk memberikan offset jarak dari batas akhir lingkaran stroke -->
+            <circle r="90" cx="100" cy="100" fill="salmon" stroke="green" stroke-width="5" stroke-dasharray="550"
+                stroke-dashoffset="100">
+            </circle>
+        </svg>
+    </div>
+
+
+    <!-- Manipulasi SVG dengan transform dan stroke offset -->
+    <div>
+        <svg height="200" width="200">
+            <!-- dengan pakai svg dan dash array -->
+            <!-- batas garis perimeter = 2 x Pi x radius  -->
+            <!-- batas garis perimeter = 2 x Pi x 90 = P = ~595 -->
+            <!-- stroke dash offset untuk memberikan offset jarak dari batas akhir lingkaran stroke -->
+            <!-- Memberikan nilai negatif pada dash offset akan berubah menjadi searah jarum jam -->
+            <!-- Putar berlawanan arah jarum jam untuk mendapatkan titik mulai putaran dari atas -->
+            <!-- Dengan menggunakan fungsi transform rotate(-90 100 100) -->
+            <!-- Artinya di putar transform putar berlawanan arah 90 derajat, dan titik pusat cx cy ada di koordinat tengah titik -->
+            <circle r="90" cx="100" cy="100" fill="salmon" stroke="green" stroke-width="10" stroke-dasharray="565"
+                stroke-dashoffset="-180" transform="rotate(-90 100 100)"></circle>
+        </svg>
+    </div>
 </body>
 <script src="TimerWaktu.js" defer></script>
 <script src="apptimer.js" defer></script>
+
 </html>
