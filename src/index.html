@@ -17,6 +17,18 @@
         <button id="button_pause">Pause</button>
     </div>
 
+    <!--  Buat seperti KNOB TIMER WAKTU -->
+    <div style="display: '';">
+        <svg height="400" width="400">
+
+            <circle id="latarlingkarjam" r="190" cx="200" cy="200" fill="transparent" stroke="#eaeaea" stroke-width="15"
+                stroke-dasharray="965"></circle>
+
+            <circle id="lingkarjam" r="190" cx="200" cy="200" fill="transparent" stroke="#f6416c" stroke-width="15"
+                transform="rotate(-90 200 200)" stroke-linecap="round"></circle>
+        </svg>
+    </div>
+
     <!-- Cara membuat SVG -->
     <div style="display: none;">
         <svg width="200" height="200">
@@ -26,7 +38,7 @@
         </svg>
     </div>
 
-    <div style="display: '';">
+    <div style="display: none;">
         <svg height="200" width="200">
             <!-- dengan pakai svg dan dash array -->
             <!-- batas garis perimeter = 2 x Pi x radius  -->
@@ -40,7 +52,7 @@
 
 
     <!-- Manipulasi SVG dengan transform dan stroke offset -->
-    <div>
+    <div style="display: none;">
         <svg height="200" width="200">
             <!-- dengan pakai svg dan dash array -->
             <!-- batas garis perimeter = 2 x Pi x radius  -->
@@ -52,6 +64,27 @@
             <!-- Artinya di putar transform putar berlawanan arah 90 derajat, dan titik pusat cx cy ada di koordinat tengah titik -->
             <circle r="90" cx="100" cy="100" fill="salmon" stroke="green" stroke-width="10" stroke-dasharray="565"
                 stroke-dashoffset="-180" transform="rotate(-90 100 100)"></circle>
+        </svg>
+    </div>
+
+    <!--  Buat seperti KNOB -->
+    <div style="display: none;">
+        <svg height="200" width="200">
+            <!-- dengan pakai svg dan dash array -->
+            <!-- batas garis perimeter = 2 x Pi x radius  -->
+            <!-- batas garis perimeter = 2 x Pi x 90 = P = ~595 -->
+            <!-- stroke dash offset untuk memberikan offset jarak dari batas akhir lingkaran stroke -->
+            <!-- Memberikan nilai negatif pada dash offset akan berubah menjadi searah jarum jam -->
+            <!-- Putar berlawanan arah jarum jam untuk mendapatkan titik mulai putaran dari atas -->
+            <!-- Dengan menggunakan fungsi transform rotate(-90 100 100) -->
+            <!-- Artinya di putar transform putar berlawanan arah 90 derajat, dan titik pusat cx cy ada di koordinat tengah titik -->
+
+            <circle r="90" cx="100" cy="100" fill="transparent" stroke="#eaeaea" stroke-width="15"
+                stroke-dasharray="565"></circle>
+
+            <circle r="90" cx="100" cy="100" fill="transparent" stroke="#f6416c" stroke-width="15"
+                stroke-dasharray="560" stroke-dashoffset="100" transform="rotate(-90 100 100)" stroke-linecap="round">
+            </circle>
         </svg>
     </div>
 </body>

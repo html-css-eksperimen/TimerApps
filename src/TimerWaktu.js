@@ -36,7 +36,7 @@ export default class TimerWaktu {
         this.tickWaktu();
         this.intervalId = setInterval(() => {
             this.tickWaktu();
-        }, 1000);
+        }, 50);
     }
 
     pauseTimer() {
@@ -54,7 +54,7 @@ export default class TimerWaktu {
                 this.onCompleteCallback();
             }
         } else {
-            this.timeRemaining -= 1;
+            this.timeRemaining -= 0.05;
             if (this.onTickCallback) {
                 this.onTickCallback();
             }
@@ -68,6 +68,6 @@ export default class TimerWaktu {
     }
 
     set timeRemaining(time) {
-        this.numberDurationInput.value = time;
+        this.numberDurationInput.value = time.toFixed(2);
     }
 }

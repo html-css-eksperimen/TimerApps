@@ -191,15 +191,30 @@ const durasiInputEl = document.querySelector('#input_duration');
 const startButtonEl = document.querySelector('#button_start');
 const pauseButtonEl = document.querySelector('#button_pause');
 
+const circleTimerElement = document.querySelector('#lingkarjam');
+const latarCircleTimerEl = document.querySelector('#latarlingkarjam');
+
+// kalkulasi besaran panjang lingkar dengan bantuan radius
+const radiusString = circleTimerElement.getAttribute('r');
+const lingkarPerimeter = parseFloat(radiusString) * 2 * Math.PI;
+
+// Set attribute ke element lingkaran
+circleTimerElement.setAttribute('stroke-dasharray', lingkarPerimeter);
+latarCircleTimerEl.setAttribute('stroke-dasharray', lingkarPerimeter);
+
 // const timerWaktu = new TimerWaktu(durasiInputEl, startButtonEl, pauseButtonEl);
 
 // Menggunakan Callback
+let currentOffsetDash = 0;
+
 const timerWaktu = new TimerWaktu(durasiInputEl, startButtonEl, pauseButtonEl, {
     onStart() {
         console.log('Timer dimulai callback');
     },
     onTick() {
         console.log('Timer sedang berdetik');
+        circleTimerElement.setAttribute('stroke-dashoffset', currentOffsetDash);
+        currentOffsetDash -= 1;
     },
     onComplete() {
         console.log('Timer sudah selesai');
