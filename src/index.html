@@ -6,19 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Aplikasi Timer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" href="apptimer.css">
 </head>
 
 <body>
     <h1>Timer Apps</h1>
-    <div>
-        <input id="input_duration" type="text" value="30">
-        <button id="button_start">Start</button>
-        <button id="button_pause">Pause</button>
-    </div>
-
-    <!--  Buat seperti KNOB TIMER WAKTU -->
-    <div style="display: '';">
+    <div class="timer">
+        <div class="controls">
+            <input type="number" id="input_duration" value="30">
+            <div>
+                <button id="button_start"><i class="fas fa-play"></i></button>
+                <button id="button_pause"><i class="fas fa-pause"></i></button>
+            </div>
+        </div>
         <svg height="400" width="400">
 
             <circle id="latarlingkarjam" r="190" cx="200" cy="200" fill="transparent" stroke="#eaeaea" stroke-width="15"
@@ -28,6 +29,18 @@
                 transform="rotate(-90 200 200)" stroke-linecap="round"></circle>
         </svg>
     </div>
+
+    <!--  Buat seperti KNOB TIMER WAKTU -->
+    <!-- <div style="display: '';">
+        <svg height="400" width="400">
+
+            <circle id="latarlingkarjam" r="190" cx="200" cy="200" fill="transparent" stroke="#eaeaea" stroke-width="15"
+                stroke-dasharray="965"></circle>
+
+            <circle id="lingkarjam" r="190" cx="200" cy="200" fill="transparent" stroke="#f6416c" stroke-width="15"
+                transform="rotate(-90 200 200)" stroke-linecap="round"></circle>
+        </svg>
+    </div> -->
 
     <!-- Cara membuat SVG -->
     <div style="display: none;">

@@ -202,7 +202,7 @@ const lingkarPerimeter = parseFloat(radiusString) * 2 * Math.PI;
 // offset = (perimeter * timeRemaining / totalDuration) - perimeter
 // Contoh perimeter = 365 , total duration = 30
 // offset start = (365 * 30 / 30) - 365 =  0
-// offset ending selesai waktu = (365 * 0 / 30) - 365 = 0
+// offset ending selesai waktu = (365 * 0 / 30) - 365 = -365
 
 // Set attribute ke element lingkaran
 circleTimerElement.setAttribute('stroke-dasharray', lingkarPerimeter);
@@ -216,12 +216,11 @@ let totalDurationTimer = 0;
 
 const timerWaktu = new TimerWaktu(durasiInputEl, startButtonEl, pauseButtonEl, {
     onStart(totalDuration) {
-        console.log('Timer dimulai callback');
+        // console.log('Timer dimulai callback');
         totalDurationTimer = totalDuration;
     },
     onTick(timeRemaining) {
-        console.log('Timer sedang berdetik');
-
+        // console.log('Timer sedang berdetik');
         currentOffsetDash =
             (lingkarPerimeter * timeRemaining) / totalDurationTimer -
             lingkarPerimeter;
