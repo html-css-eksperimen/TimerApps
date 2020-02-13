@@ -1,12 +1,12 @@
 {
-  "name": "jsbootcampcsappjs",
+  "name": "timerwaktu",
   "version": "1.0.0",
   "description": "Latihan Colt Steele dengan html dan struktur terpisah. Latihan untuk mengerjakan soal Udemy Course dari Colt Steele dan Stephen Grider https://www.udemy.com/course/javascript-beginners-complete-tutorial/",
   "main": "app.js",
   "scripts": {
     "dev": "parcel -p 4200 src/index.html",
     "build": "parcel build src/index.html --no-source-maps",
-    "deploygithub": "parcel build src/index.html --public-url /githubdomain/"
+    "deploygithub": "parcel build src/index.html --public-url /demo-timerapps/"
   },
   "author": "Gulajava",
   "license": "MIT",

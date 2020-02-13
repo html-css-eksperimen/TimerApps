@@ -45,8 +45,6 @@ export default class TimerWaktu {
         clearInterval(this.intervalId);
     }
 
-    onDurationChange() {}
-
     tickWaktu() {
         // Dengan cek getter dan setter
         if (this.timeRemaining <= 0) {
