@@ -191,8 +191,8 @@ const durasiInputEl = document.querySelector('#input_duration');
 const startButtonEl = document.querySelector('#button_start');
 const pauseButtonEl = document.querySelector('#button_pause');
 
-const circleTimerElement = document.querySelector('#lingkarjam');
-const latarCircleTimerEl = document.querySelector('#latarlingkarjam');
+const circleTimerElement = document.querySelector('.lingkarjam');
+const latarCircleTimerEl = document.querySelector('.latarlingkarjam');
 
 // kalkulasi besaran panjang lingkar dengan bantuan radius
 const radiusString = circleTimerElement.getAttribute('r');
